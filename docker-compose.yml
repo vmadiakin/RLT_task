@@ -3,7 +3,7 @@ version: '3.9'
 services:
   app:
     image: vitaliimadiakin/rlt_task:$GITHUB_RUN_ID
-    container_name: api
+    container_name: rlt_api
     ports:
       - "8080:5000"
     depends_on:
@@ -13,7 +13,7 @@ services:
 
   mongodb:
     image: mongo
-    container_name: mdb
+    container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
