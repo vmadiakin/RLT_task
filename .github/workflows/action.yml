@@ -47,7 +47,7 @@ jobs:
       - name: render config
         run: |
           mkdir rlt_task
-          cat docker-compose.yaml | envsubst > docker-compose.yaml
+          cat docker-compose.yml | envsubst > docker-compose.yml
       - name: clone files to server
         uses: appleboy/scp-action@master
         with:
