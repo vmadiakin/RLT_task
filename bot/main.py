@@ -11,7 +11,7 @@ from query_handler import process_message
 load_dotenv()
 
 # Создаем объекты бота и диспетчера
-bot = Bot(token=os.getenv('token'))
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher()
 
 
