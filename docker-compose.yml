@@ -2,9 +2,8 @@ version: '3.9'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: vitaliimadiakin/rlt_task:$GITHUB_RUN_ID
+    container_name: api
     ports:
       - "8080:5000"
     depends_on:
@@ -14,6 +13,7 @@ services:
 
   mongodb:
     image: mongo
+    container_name: mdb
     ports:
       - "27017:27017"
     volumes:
