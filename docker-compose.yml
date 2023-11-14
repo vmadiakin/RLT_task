@@ -10,6 +10,7 @@ services:
       - mongodb
     environment:
       MONGO_URI: "mongodb://mongodb:27017/mongodb"
+    command: bash -c "sleep 10 && mongoimport --host mongodb --db mongodb --collection sample_collection --type json --file /app/mdb_data/sample_collection.bson --jsonArray"
 
   mongodb:
     image: mongo
