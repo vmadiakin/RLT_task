@@ -64,5 +64,5 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd rlt_task
+            cd rlt_task_app
             docker-compose up -d
