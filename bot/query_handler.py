@@ -1,9 +1,6 @@
 import json
 from aiogram import types
-
-
-async def aggregate_salaries(dt_from, dt_upto, group_type) -> None:
-    pass
+from aggregation.aggregator import aggregate_salaries
 
 
 async def process_message(message: types.Message) -> None:
