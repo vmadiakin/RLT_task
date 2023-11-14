@@ -1,4 +1,3 @@
-import asyncio
 from datetime import timedelta, datetime
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -7,7 +6,7 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
     dt_from = datetime.fromisoformat(dt_from)
     dt_upto = datetime.fromisoformat(dt_upto)
 
-    client = AsyncIOMotorClient('mongodb://localhost:27017', connect=False)
+    client = AsyncIOMotorClient('mongodb://mongodb:27017', connect=False)
     db = client['mongodb']
     collection = db['sample_collection']
 
@@ -51,18 +50,3 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
     labels = [day.strftime(date_format) for day in all_days]
 
     return {"dataset": dataset, "labels": labels}
-
-
-async def main():
-    data = {
-        "dt_from": "2022-10-01T00:00:00",
-        "dt_upto": "2022-11-30T23:59:00",
-        "group_type": "day"
-    }
-
-    result = await aggregate_salaries(data["dt_from"], data["dt_upto"], data["group_type"])
-    print(result)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
