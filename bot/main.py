@@ -10,7 +10,7 @@ from bot.query_handler import process_message
 
 load_dotenv()
 
-bot = Bot(token=os.getenv('token'))
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher()
 
 

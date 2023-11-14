@@ -1,3 +1,4 @@
+import os
 from datetime import timedelta, datetime
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -6,9 +7,9 @@ async def aggregate_salaries(dt_from, dt_upto, group_type):
     dt_from = datetime.fromisoformat(dt_from)
     dt_upto = datetime.fromisoformat(dt_upto)
 
-    client = AsyncIOMotorClient('mongodb://mongodb:27017', connect=False)
-    db = client['mongodb']
-    collection = db['sample_collection']
+    client = AsyncIOMotorClient(os.getenv('CLIENT'), connect=False)
+    db = client[os.getenv('DB')]
+    collection = db[os.getenv('COLLECTION')]
 
     current_date = dt_from
     all_days = []
