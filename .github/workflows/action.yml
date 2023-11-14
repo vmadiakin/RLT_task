@@ -54,7 +54,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "docker-compose.yaml"
+          source: "docker-compose.yml"
           target: "rlt_task"
       - name: run docker-compose
         uses: appleboy/ssh-action@master
